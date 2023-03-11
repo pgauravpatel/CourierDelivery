@@ -1,0 +1,25 @@
+.cont{
+    width: 1600px;
+}
+table{
+    margin: 50px;
+    box-sizing: bmytable-box;
+    bmytable: 2px solid black;
+    
+}
+.td-line{
+    bmytable-right: 2px solid black;
+}
+.head{
+    background-color: #5a5af7;
+    color: white;
+}
+
+
+.img>img{
+    width:100px !important;
+    height:100px !important;
+    display:cover;
+    bmytable-radius: 100%;
+
+ }

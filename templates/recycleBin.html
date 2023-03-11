@@ -1,0 +1,105 @@
+
+{% include "header.html" %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+    .img>img{
+        width:100px !important;
+        height:100px !important;
+        display:cover;
+        bmytable-radius: 100%;
+    
+     }
+     .back{
+        background-color:#dddddd
+     }
+     .back>a>span{
+        
+        font-weight:bolder;
+        font-size:25px;
+        color:black;
+        margin-left:20px;
+        
+        
+     }
+     .back>a>span:hover{
+        background-color:#aea7a7
+     }
+</style>
+
+
+{% block body %}
+
+<div class="recycle-con">
+
+    <table class="table table-striped" >
+        <tr >
+            <th colspan="5" class="head td-line" >Pickup Point Details</th>
+            <th colspan="8" class="head td-line">Delivery Point Details</th>
+            <th colspan="3" class="head">Admin Entered Details</th>
+        </tr>
+
+
+        <tr class="head">
+      <th>Serial</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th class="td-line">Address</th>
+      <th>Name2</th>
+      <th>Email2</th>
+      <th>Phone2</th>
+      <th>Address2</th>
+      <th>Photo</th>
+      <th>Weight</th>
+      <th>Distance</th>
+      <th class="td-line">Cost</th>
+      <th>Remarks/Consign Details</th>
+      <th colspan="2">Date of Delivery</th>
+
+
+  </tr>
+
+
+
+
+
+        {% for row in client %}
+        
+        <tr id="tr{{loop.index0}}" >
+            <td>{{row.0}}</td>
+            <td>{{row.1}}</td>
+            <td>{{row.2}}</td>
+            <td>{{row.3}}</td>
+            <td class="td-line">{{row.4}}</td>
+            <td>{{row.5}}</td>
+            <td>{{row.6}}</td>
+            <td>{{row.7}}</td>
+            <td>{{row.8}}</td>
+            <td class="img"><img src="data:image/jpg;base64,{{photos[loop.index0]}} "> </td>
+            <td>{{row.10}}</td>
+            <td >{{row.11}}</td>
+            <td class="td-line">{{row.12}}</td>
+            <td id="remark{{loop.index0}}">{{row.13}}</td>
+            <td id="date{{loop.index0}}">{{row.14}}</td>
+            
+            <td>
+
+
+       
+        <a href="/deleteRecycle/{{ row.0 }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Permanent Delete?')">Delete</a>
+        <a href="/restore/{{ row.0 }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Restore?')">Restore</a>
+        
+
+            </td>
+
+        </tr>
+        {%endfor%}
+    </div>
+    <div class="back">
+        <a href='/admin/dashboard'><span>	&#129136;</span></a>
+      </div>
+{% endblock %}
+
+
+    

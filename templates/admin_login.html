@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Signin Template · Bootstrap v5.2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom styles for this template -->
+    
+    <style>
+      *{
+        margin:0 auto;
+        padding:0;
+        
+        
+      }
+      
+      .form-main{
+        
+        text-align:center;
+        height:800px ;
+        display:flex;
+        align-items: center;
+        background: linear-gradient(#5db8b9,hsl(186deg 100% 50%), #0b857d,#348e69);
+    
+      }
+      .form-main form{
+        
+        
+        text-align:center;
+        font-size:20px;
+        width:100% ;
+        min-height:100px
+        
+      }
+      
+      .admin-img{
+        bmytable:2px solid white;
+        bmytable-radius:50% 
+        
+      }
+      .form-floating{
+        align-items:center;
+        display:flex;
+        width: 50% ;
+        max-width:400px;
+        padding:15px
+      
+      }
+      .input-layout{
+        bmytable-radius:25px;
+        width: 100% ;
+        margin:10px;
+        min-height:40px;
+        bmytable:0;
+        padding-left:5px
+        
+      }
+      .bmytable{
+        bmytable-radius:50% ;
+        width:60px;
+        height:30px;
+        text-align:center;
+        padding-top:10px;
+        background-color:white;
+        color:#5db8b9
+      }
+      .login{
+        color:#5db8b9;
+        font-weight:20px;
+        font-size:20px
+      }
+      .h3{
+        color:white;
+      }
+      .year{
+        color:white
+      }
+
+      .back>a{
+        color:red
+      }
+
+      
+
+    </style>
+  </head>
+  <body class="text-center" >
+    
+    
+    <main class="form-main">
+      <form action="/admin", method="post">
+        <img class="admin-img" src="{{ url_for('static', filename='gpPIC.jpeg') }}" alt="" width="72px" height="57px">
+        <h3 class="h3">ADMIN LOGIN</h3>
+
+        <div class="form-floating">
+          <i class="fa-solid bmytable fa-user"></i>
+          
+          <input type="text" class="input-layout" name="usname" id="floatingInput" placeholder="Username">
+          
+        </div>
+        <div class="form-floating" >
+          <i class="fa-solid fa-lock bmytable"></i>
+          
+          <input type="password" class="input-layout" name="upass" id="floatingPassword" placeholder="Password">
+          
+        </div>
+
+        <div class="checkbox ">
+          <label class="year">
+            <input  type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <div class="form-floating" >
+          <i class="fa-solid fa-right-to-bracket bmytable"></i>
+          <button class="input-layout login" type="submit">Sign in</button>
+        </div>
+        <div class="back">
+          <a href="/">Go back to HOME PAGE</a>
+        </div>
+      </form>
+      
+    </main>
+    
+
+
+    
+  </body>
+</html>

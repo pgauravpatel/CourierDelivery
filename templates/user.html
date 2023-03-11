@@ -1,0 +1,192 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>FirstPage</title> 
+    
+    <script>
+        function calculateRate() {
+          var weight = document.getElementById("weight").value;
+          var distance = document.getElementById("distance").value;
+      
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  var rate = JSON.parse(this.responseText).rate;
+                  document.getElementById("rate").innerHTML = rate +" "+ "INR";
+              }
+          };
+          xhttp.open("GET", "/calculate?weight=" + weight + "&distance=" + distance, true);
+          xhttp.send();
+      }
+      
+      </script>
+      <style>
+        *{
+            margin:0 auto;
+            padding:0
+        }
+        .user_page{
+            display: flex;
+            width: 100%;
+            height: 800px;
+            align-items: center;
+        }
+        .pickup{
+            background-color:#e5a8a8;
+            width:50% ;
+            height:500px;
+            display: grid;
+            bmytable-radius:40px 5px
+            
+        }
+        input{
+            width:200px;
+            height:35px;
+            bmytable-radius:10px;
+            text-align:center
+        }
+        .submit{
+            display:flex;
+            position:relative;
+            top:-100px;
+            font-size:20px;
+            margin:10px
+        }
+        .submit>input:hover{
+            background-color:blue;
+            color:white;
+            font-size:20px
+        }
+        .calculate>input{
+            margin:10px 0;
+        }
+        .calculate>button{
+            display:flex;
+            width:fit-content;
+            font-size:15px;
+            padding:3px;
+            bmytable-radius:10px
+        }
+        #rate{
+            
+            position:relative;
+            text-align:center;
+            font-size:20px
+        }
+
+        .file_upload{
+            display:flex
+        }
+
+        label.label input[type="file"] {
+            
+            top: -1000px;
+          }
+          .label {
+            cursor: pointer;
+            bmytable: 1px solid #cccccc;
+            bmytable-radius: 10px;
+            width:200px;
+            height:35px;
+            margin: 0px;
+            background:rgba(250,250,250,.2);
+            text-align:center;
+            line-height:35px
+          }
+          .label:hover {
+            background: #5cbd95;
+          }
+          .label>span{
+            position: relative;
+            top: -14px;
+            
+          }
+          
+
+
+          .top_page{
+            position:absolute;
+            width:100% ;
+            z-index:2
+            
+          }
+          .bottom_page{
+            width:100%  ;
+            height:800px;
+            background-color:rgba(0,100,0,.5);
+            position:absolute;
+            
+          }
+          .bottom_page>img{
+            width:100px;
+            position:absolute;
+            top:30% ;
+            left:30% ;
+            animation:aerow 2s infinite;
+            
+          }
+          @keyframes aerow{
+            from{}
+            to{
+                left:65% 
+          }
+        }
+        
+      </style>
+</head>  
+<body> 
+    
+        
+    <div class="top_page">
+    
+        <form action = "/user_details" method="post" enctype="multipart/form-data">
+            <div class="user_page" >
+                <div class="pickup">  
+                    <h2>Enter Pickup Point Details</h2>
+                    <input type="text" placeholder="Name" name="name" required> <br/>
+                    <input type="email" placeholder="E-mail" name="email" required> <br/>
+                    <input type="text" placeholder="Address" name="address" required><br/>
+                    <input type="text" placeholder="Phone" maxlength="10" minlength="10"  name="phone" required><br/>
+                    
+                </div>
+                <div class="calculate">
+                    <input type="number" name="weight"  id="weight" placeholder="Weight" required><br/>
+                    <input type="number" name="distance"  id="distance" placeholder="Distance" required><br/>
+                    <h3 id="rate"></h3>
+                    <button type="button" onclick="calculateRate()">Calculate Rate</button>
+                    
+                </div>
+                <div class="pickup">  
+                    <h2>Enter Delivery Point Details</h2>
+                    <input type="text" placeholder="Name" name="name1" required><br/>
+                    <input type="email" placeholder="E-mail" name="email1" required> <br/>
+                    <input type="text" placeholder="Address" name="address1" required><br/>
+                    <input type="text" placeholder="Phone" maxlength="10" minlength="10"  name="phone1" required><br/>
+                    <div class="file_upload">
+                    <label class="label">
+                        <input type="file" name="file1" required/>
+                        <span>Upload Photo</span>
+                    </label>
+                    </div>
+                    
+                </div>
+            </div>
+                    
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+        
+        </form>
+        
+        <div class="submit">
+            <a href="/">Go back to HOME PAGE</a>
+        </div>
+    </div>
+    <div class="bottom_page">
+        <img src="https://th.bing.com/th/id/R.2cc27fe9e8e762094d4a8e3506dc737a?rik=J%2fQ0v5HWgnh%2fZQ&riu=http%3a%2f%2fcliparting.com%2fwp-content%2fuploads%2f2016%2f05%2fArrow-clipart-arrow-graphics-3-clipartcow.png&ehk=vCWgmCc2%2fr7Ge%2feM3xd3Hir8FOkhma0u2TOkUNDuPxU%3d&risl=&pid=ImgRaw&r=0" alt="aerow">
+    </div>
+    
+   
+
+</body>  
+</html>  
